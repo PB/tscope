@@ -35,6 +35,12 @@ gem "figaro"
 # New relic gem for performance management
 gem 'newrelic_rpm'
 
+# Puma gem for server
+gem 'puma'
+
+# Abort requests that are taking too long
+gem 'rack-timeout'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
