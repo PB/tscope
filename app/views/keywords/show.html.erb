@@ -5,13 +5,20 @@
   <%= @keyword.word %>
 </p>
 
-<h2>Latest tweets (<%= @keyword.tweets.count %>)</h2>
+<h2>Latest tweets (all: <%= @keyword.tweets.count %>, on page: <%= @tweets.size %>)</h2>
 
 <ul>
-<% @keyword.tweets.each do |tweet| %>
-    <li><img src="<%= tweet.user_image_url %>" width="50"><%= tweet.user_screen_name %>: <%= tweet.text %></li>
+<% @tweets.each do |tweet| %>
+    <li>
+      <img src="<%= tweet.user_image_url %>" width="30"><%= tweet.user_screen_name %>: <%= tweet.text %>
+      <%= tweet.tweet_created_at.strftime("Twitted on %d/%m/%Y at %H:%M") %>
+    </li>
 <% end %>
 </ul>
+
+<div style="padding: 20px;border:1px solid #CCC;text-align: center">
+    <%= will_paginate @tweets %>
+</div>
 
 <%= link_to 'Edit', edit_keyword_path(@keyword) %> |
 <%= link_to 'Back', keywords_path %>

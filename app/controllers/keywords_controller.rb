@@ -11,6 +11,7 @@ class KeywordsController < ApplicationController
   # GET /keywords/1.json
   def show
     #@keyword.grab_tweets
+    @tweets = @keyword.tweets.order(tweet_created_at: :desc).page(params[:page]).per_page(10)
   end
 
   # GET /keywords/new

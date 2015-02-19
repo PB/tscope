@@ -41,6 +41,9 @@ gem 'puma'
 # Abort requests that are taking too long
 gem 'rack-timeout'
 
+# Pagination library
+gem 'will_paginate', '~> 3.0.6'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
