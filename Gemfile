@@ -32,6 +32,9 @@ gem 'twitter', '~> 5.14.0'
 # Figaro gem for secrets
 gem "figaro"
 
+# New relic gem for performance management
+gem 'newrelic_rpm'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
