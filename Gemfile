@@ -26,6 +26,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Heroku gem
 gem 'rails_12factor', group: :production
 
+# Twitter gem
+gem 'twitter', '~> 5.14.0'
+
+# Figaro gem for secrets
+gem "figaro"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
