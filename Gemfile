@@ -25,33 +25,26 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Heroku gem
 gem 'rails_12factor', group: :production
-
 # Twitter gem
 gem 'twitter', '~> 5.14.0'
-
 # Figaro gem for secrets
-gem "figaro"
-
+gem 'figaro'
 # New relic gem for performance management
 gem 'newrelic_rpm'
-
 # Puma gem for server
 gem 'puma'
-
 # Abort requests that are taking too long
 gem 'rack-timeout'
-
 # Pagination library
 gem 'will_paginate', '~> 3.0.6'
-
 # Auto link
 gem 'rails_autolink'
-
 # Files upload
 gem 'carrierwave'
-
 # Amazon S3
 gem 'fog'
+# Mini magic for ImageMagick Carrierwave
+gem 'mini_magick'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -17,7 +17,7 @@
   </div>
 
   <div class="field">
-    <%= image_tag(@keyword.image, width: 100) if @keyword.image? %>
+    <%= image_tag(@keyword.image.thumb.url, width: 100) if @keyword.image? %>
     <%= f.file_field :image %>
     <%= f.hidden_field :image_cache %>
   </div>
