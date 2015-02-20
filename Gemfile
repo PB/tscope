@@ -47,6 +47,12 @@ gem 'will_paginate', '~> 3.0.6'
 # Auto link
 gem 'rails_autolink'
 
+# Files upload
+gem 'carrierwave'
+
+# Amazon S3
+gem 'fog'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
