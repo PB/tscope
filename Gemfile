@@ -44,6 +44,9 @@ gem 'rack-timeout'
 # Pagination library
 gem 'will_paginate', '~> 3.0.6'
 
+# Auto link
+gem 'rails_autolink'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,5 +1,5 @@
 class Keyword < ActiveRecord::Base
-  has_many :tweets
+  has_many :tweets, dependent: :destroy
   def grab_tweets
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["twitter_consumer_key"]

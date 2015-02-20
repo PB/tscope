@@ -10,7 +10,7 @@
 <ul>
 <% @tweets.each do |tweet| %>
     <li>
-      <img src="<%= tweet.user_image_url %>" width="30"><%= tweet.user_screen_name %>: <%= tweet.text %>
+      <img src="<%= tweet.user_image_url %>" width="30"><%= tweet.user_screen_name %>: <%= auto_link tweet.text, html:{ target: '_blank' } %>
       <%= tweet.tweet_created_at.strftime("Twitted on %d/%m/%Y at %H:%M") %>
     </li>
 <% end %>
