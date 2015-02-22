@@ -3,4 +3,7 @@ task :grab_twitts => :environment do
   puts "Grabing all tweets for keyword..."
   Keyword.grab_all_tweets
   puts "done."
+  puts "Removing all duplicates..."
+  Tweet.remove_duplicates
+  puts "done."
 end

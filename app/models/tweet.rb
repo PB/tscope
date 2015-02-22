@@ -12,6 +12,6 @@ class Tweet < ActiveRecord::Base
         to_destroy << tweet.id
       end
     end
-    Tweet.delete(to_destroy)
+    Tweet.delete(to_destroy) if to_destroy.any?
   end
 end
