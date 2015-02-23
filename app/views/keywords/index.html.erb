@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Listing Keywords</h2>
+<h1>Listing Keywords</h1>
 
-<table>
+<%= link_to 'New Keyword', new_keyword_path, class: 'btn btn-primary pull-right' %>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Image</th>
@@ -16,14 +18,10 @@
       <tr>
         <td><%= image_tag(keyword.image.thumb.url) if keyword.image? %></td>
         <td><%= keyword.word %></td>
-        <td><%= link_to 'Show', keyword %></td>
-        <td><%= link_to 'Edit', edit_keyword_path(keyword) %></td>
-        <td><%= link_to 'Destroy', keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', keyword, class: 'btn btn-default' %></td>
+        <td><%= link_to 'Edit', edit_keyword_path(keyword), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Destroy', keyword, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Keyword', new_keyword_path %>

@@ -45,6 +45,9 @@ gem 'carrierwave'
 gem 'fog'
 # Mini magic for ImageMagick Carrierwave
 gem 'mini_magick'
+# Bootstrap gem
+gem 'bootstrap-sass', '~> 3.3.3'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
