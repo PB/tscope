@@ -27,5 +27,6 @@ class Keyword < ActiveRecord::Base
     Keyword.all.each do |keyword|
       keyword.grab_tweets
     end
+    expire_fragment('keywords_home_table')
   end
 end

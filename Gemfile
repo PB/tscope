@@ -49,6 +49,8 @@ gem 'mini_magick'
 gem 'bootstrap-sass', '~> 3.3.3'
 # S3 assets
 gem 'asset_sync'
+# Memcache client
+gem 'dalli'
 
 
 # Use ActiveModel has_secure_password
