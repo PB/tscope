@@ -8,16 +8,18 @@
   <%= @keyword.word %>
 </p>
 
-<h2>Latest tweets (all: <%= @keyword.tweets.count %>, on page: <%= @tweets.size %>)</h2>
+<% cache("keywords_show_id_#{@keyword.id}_p_#{params[:page]}", skip_digest: true, expirees_in: 60.minutes) do %>
+    <h2>Latest tweets (all: <%= @keyword.tweets.count %>, on page: <%= @tweets.size %>)</h2>
 
-<ul>
-<% @tweets.each do |tweet| %>
-    <li>
-      <img src="<%= tweet.user_image_url %>" width="30"><%= tweet.user_screen_name %>: <%= auto_link tweet.text, html:{ target: '_blank' } %>
-      <%= tweet.tweet_created_at.strftime("Twitted on %d/%m/%Y at %H:%M") %>
-    </li>
+    <ul>
+    <% @tweets.each do |tweet| %>
+        <li>
+          <img src="<%= tweet.user_image_url %>" width="30"><%= tweet.user_screen_name %>: <%= auto_link tweet.text, html:{ target: '_blank' } %>
+          <%= tweet.tweet_created_at.strftime("Twitted on %d/%m/%Y at %H:%M") %>
+        </li>
+    <% end %>
+    </ul>
 <% end %>
-</ul>
 
 <div style="padding: 20px;border:1px solid #CCC;text-align: center">
     <%= will_paginate @tweets %>
