@@ -4,7 +4,7 @@
 
 <%= link_to 'New Keyword', new_keyword_path, class: 'btn btn-primary pull-right' %>
 
-<% cache('keywords_home_table') do %>
+<% cache('keywords_home_table', skip_digest: true) do %>
     <table class="table table-striped">
       <thead>
         <tr>
