@@ -39,6 +39,10 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.7)
     arel (6.0.0)
+    asset_sync (1.1.0)
+      activemodel
+      fog (>= 1.8.0)
+      unf
     autoprefixer-rails (5.1.4)
       execjs
       json
@@ -278,6 +282,9 @@ GEM
     uglifier (2.7.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.6)
     web-console (2.0.0)
       activemodel (~> 4.0)
       binding_of_caller (>= 0.7.2)
@@ -289,6 +296,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  asset_sync
   bootstrap-sass (~> 3.3.3)
   byebug
   carrierwave

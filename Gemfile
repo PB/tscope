@@ -47,6 +47,8 @@ gem 'fog'
 gem 'mini_magick'
 # Bootstrap gem
 gem 'bootstrap-sass', '~> 3.3.3'
+# S3 assets
+gem 'asset_sync'
 
 
 # Use ActiveModel has_secure_password
