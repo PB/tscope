@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223181349) do
+ActiveRecord::Schema.define(version: 20150224104322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150223181349) do
     t.datetime "updated_at",       null: false
   end
 
+  add_index "tweets", ["keyword_id", "tweet_created_at"], name: "index_tweets_on_keyword_id_and_tweet_created_at", using: :btree
   add_index "tweets", ["keyword_id"], name: "index_tweets_on_keyword_id", using: :btree
 
 end
