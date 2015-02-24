@@ -31,6 +31,7 @@ class KeywordsController < ApplicationController
     respond_to do |format|
       if @keyword.save
         @keyword.grab_tweets #on success grab tweets for keyword
+        expire_fragment('keywords_home_table')
         format.html { redirect_to @keyword, notice: 'Keyword was successfully created.' }
         format.json { render :show, status: :created, location: @keyword }
       else
@@ -45,6 +46,7 @@ class KeywordsController < ApplicationController
   def update
     respond_to do |format|
       if @keyword.update(keyword_params)
+        expire_fragment('keywords_home_table')
         format.html { redirect_to @keyword, notice: 'Keyword was successfully updated.' }
         format.json { render :show, status: :ok, location: @keyword }
       else
@@ -58,6 +60,7 @@ class KeywordsController < ApplicationController
   # DELETE /keywords/1.json
   def destroy
     @keyword.destroy
+    expire_fragment('keywords_home_table')
     respond_to do |format|
       format.html { redirect_to keywords_url, notice: 'Keyword was successfully destroyed.' }
       format.json { head :no_content }
