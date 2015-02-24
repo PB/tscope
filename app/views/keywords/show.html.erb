@@ -8,7 +8,7 @@
   <%= @keyword.word %>
 </p>
 
-<% cache("keywords_show_id_#{@keyword.id}_p_#{params[:page]}", skip_digest: true, expirees_in: 60.minutes) do %>
+<% cache("keywords_show_id_#{@keyword.id}_p_#{params[:page]}", skip_digest: true, expires_in: 60.minutes) do %>
     <h2>Latest tweets (all: <%= @keyword.tweets.count %>, on page: <%= @tweets.size %>)</h2>
 
     <ul>
