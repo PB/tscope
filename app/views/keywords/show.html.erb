@@ -3,26 +3,34 @@
 <p>
   <%= image_tag(@keyword.image.medium.url) if @keyword.image? %>
 </p>
-<p>
+<p class="lead">
   <strong>Word:</strong>
   <%= @keyword.word %>
 </p>
+<div class="pull-right">
+    <%= link_to 'Edit', edit_keyword_path(@keyword), class: 'btn btn-default' %>
+    <%= link_to 'Back', keywords_path, class: 'btn btn-default' %>
+</div>
+<div class="clearfix"></div>
+<hr>
 
 <% cache("keywords_show_id_#{@keyword.id}_p_#{params[:page]}", skip_digest: true, expires_in: 60.minutes) do %>
-    <h2>Latest tweets (all: <%= @keyword.tweets.count %>, on page: <%= @tweets.size %>)</h2>
+    <p><strong>Latest tweets</strong> <span class="badge"><%= @keyword.tweets.size %></span></p>
 
-    <ul>
     <% @tweets.each do |tweet| %>
-        <li>
-          <img src="<%= tweet.user_image_url %>" width="30"><%= tweet.user_screen_name %>: <%= auto_link tweet.text, html:{ target: '_blank' } %>
-          <%= tweet.tweet_created_at.strftime("Twitted on %d/%m/%Y at %H:%M") %>
-        </li>
+    <div class="media">
+      <a class="media-left" href="#">
+        <img src="<%= tweet.user_image_url %>">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading"><%= tweet.user_screen_name %></h4>
+        <%= auto_link tweet.text, html:{ target: '_blank' } %>
+        <p><%= tweet.tweet_created_at.strftime("Twitted on %d/%m/%Y at %H:%M") %></p>
+      </div>
+    </div>
     <% end %>
-    </ul>
-    <div style="padding: 20px;border:1px solid #CCC;text-align: center">
+
+    <div class="flickr_pagination">
         <%= will_paginate @tweets %>
     </div>
 <% end %>
-
-<%= link_to 'Edit', edit_keyword_path(@keyword) %> |
-<%= link_to 'Back', keywords_path %>

@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Keywords</h1>
-
-<%= link_to 'New Keyword', new_keyword_path, class: 'btn btn-primary pull-right' %>
-
 <% cache('keywords_home_table', skip_digest: true) do %>
+    <div class="page-header">
+        <h1>Listing Keywords <span class="badge"><%= @tweets.size %></span></h1>
+    </div>
+
+    <%= link_to 'New Keyword', new_keyword_path, class: 'btn btn-primary pull-right' %>
+
     <table class="table table-striped">
       <thead>
         <tr>
@@ -20,7 +22,7 @@
           <tr>
             <td><%= image_tag(keyword.image.thumb.url) if keyword.image? %></td>
             <td><%= keyword.word %></td>
-            <td><%= keyword.tweets.count %></td>
+            <td><%= keyword.tweets.size %></td>
             <td><%= link_to 'Show', keyword, class: 'btn btn-default' %></td>
             <td><%= link_to 'Edit', edit_keyword_path(keyword), class: 'btn btn-default' %></td>
             <td><%= link_to 'Destroy', keyword, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-danger' %></td>

@@ -2,12 +2,7 @@ class Keyword < ActiveRecord::Base
   has_many :tweets, dependent: :destroy
   mount_uploader :image, ImageUploader
   def grab_tweets
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV["twitter_consumer_key"]
-      config.consumer_secret     = ENV["twitter_consumer_secret"]
-      config.access_token        = ENV["twitter_access_token"]
-      config.access_token_secret = ENV["twitter_access_token_secret"]
-    end
+    client = Keyword.twitter_client
 
     client.search(self.word, result_type: "recent").take(100).collect do |tweet|
       new_tweet = Tweet.new
@@ -28,5 +23,14 @@ class Keyword < ActiveRecord::Base
       keyword.grab_tweets
     end
     ActionController::Base.new.expire_fragment('keywords_home_table')
+  end
+
+  def self.twitter_client
+    Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV["twitter_consumer_key"]
+      config.consumer_secret     = ENV["twitter_consumer_secret"]
+      config.access_token        = ENV["twitter_access_token"]
+      config.access_token_secret = ENV["twitter_access_token_secret"]
+    end
   end
 end

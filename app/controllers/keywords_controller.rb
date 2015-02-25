@@ -5,6 +5,7 @@ class KeywordsController < ApplicationController
   # GET /keywords.json
   def index
     @keywords = Keyword.all.order(id: :desc)
+    @tweets = Tweet.all
   end
 
   # GET /keywords/1
