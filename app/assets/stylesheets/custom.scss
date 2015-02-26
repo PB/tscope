@@ -71,3 +71,38 @@ body {
   margin-right: 1em; }
 .flickr_pagination .next_page {
   margin-left: 1em; }
+
+
+/* Side notes for calling out things
+-------------------------------------------------- */
+
+/* Base styles (regardless of theme) */
+.bs-callout {
+  padding: 20px;
+  margin: 0px 0px 15px 0px;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+  height: 135px;
+}
+.bs-callout h4 {
+  margin-top: 0;
+}
+.bs-callout p:last-child {
+  margin-bottom: 0;
+}
+.bs-callout code,
+.bs-callout .highlight {
+  background-color: #fff;
+}
+
+/* Themes for different contexts */
+.bs-callout-danger {
+  border-left-color: #aa6708;
+}
+.bs-callout-warning {
+  border-left-color: #ce4844;
+}
+.bs-callout-info {
+  border-left-color: #1b809e;
+}

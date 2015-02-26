@@ -1,36 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <%= image_tag(@keyword.image.medium.url) if @keyword.image? %>
-</p>
-<p class="lead">
-  <strong>Word:</strong>
-  <%= @keyword.word %>
-</p>
-<div class="pull-right">
+
+<div class="media">
+  <a class="media-left" href="#">
+    <% if @keyword.image? %>
+        <%= image_tag(@keyword.image.medium.url) %>
+    <% else %>
+        <img src="http://placehold.it/100x100" style="width: 100px; height: 100px;">
+    <% end %>
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">Word: <strong><%= @keyword.word %></strong></h4>
     <%= link_to 'Edit', edit_keyword_path(@keyword), class: 'btn btn-default' %>
     <%= link_to 'Back', keywords_path, class: 'btn btn-default' %>
+  </div>
 </div>
-<div class="clearfix"></div>
+
 <hr>
 
-<% cache("keywords_show_id_#{@keyword.id}_p_#{params[:page]}", skip_digest: true, expires_in: 60.minutes) do %>
-    <p><strong>Latest tweets</strong> <span class="badge"><%= @keyword.tweets.size %></span></p>
-
-    <% @tweets.each do |tweet| %>
-    <div class="media">
-      <a class="media-left" href="#">
-        <img src="<%= tweet.user_image_url %>">
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading"><%= tweet.user_screen_name %></h4>
-        <%= auto_link tweet.text, html:{ target: '_blank' } %>
-        <p><%= tweet.tweet_created_at.strftime("Twitted on %d/%m/%Y at %H:%M") %></p>
-      </div>
-    </div>
+<div class="row">
+    <div class="col-md-12">
+    <% cache("keywords_show_id_#{@keyword.id}_p_#{params[:page]}", skip_digest: true, expires_in: 60.minutes) do %>
+        <p><strong>Latest tweets</strong> <span class="badge"><%= @keyword.tweets.size %></span></p>
+          <div class="row">
+            <% @tweets.each do |tweet| %>
+            <div class="col-md-6">
+                <div class="media bs-callout">
+                  <a class="media-left" href="#">
+                    <img src="<%= tweet.user_image_url %>" class="thumbnail">
+                  </a>
+                  <div class="media-body">
+                    <h4 class="media-heading"><%= tweet.user_screen_name %></h4>
+                    <%= auto_link tweet.text, html:{ target: '_blank' } %>
+                    <p><small><%= tweet.tweet_created_at.strftime("Twitted on %d/%m/%Y at %H:%M") %></small></p>
+                  </div>
+                </div>
+            </div>
+            <% end %>
+          </div>
+        <div class="flickr_pagination">
+            <%= will_paginate @tweets %>
+        </div>
     <% end %>
-
-    <div class="flickr_pagination">
-        <%= will_paginate @tweets %>
     </div>
-<% end %>
+</div>

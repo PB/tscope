@@ -20,7 +20,7 @@
       <tbody>
         <% @keywords.each do |keyword| %>
           <tr>
-            <td><%= image_tag(keyword.image.thumb.url) if keyword.image? %></td>
+            <td><%= keyword.image? ? image_tag(keyword.image.thumb.url, class: 'thumbnail') : raw('<img src="http://placehold.it/50x50" class="thumbnail">') %></td>
             <td><%= keyword.word %></td>
             <td><%= keyword.tweets.size %></td>
             <td><%= link_to 'Show', keyword, class: 'btn btn-default' %></td>
