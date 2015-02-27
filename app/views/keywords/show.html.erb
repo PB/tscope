@@ -4,9 +4,9 @@
 <div class="media">
   <a class="media-left" href="#">
     <% if @keyword.image? %>
-        <%= image_tag(@keyword.image.medium.url) %>
+        <%= image_tag(@keyword.image.medium.url, class: 'thumbnail') %>
     <% else %>
-        <img src="http://placehold.it/100x100" style="width: 100px; height: 100px;">
+        <img src="http://placehold.it/100x100" class="thumbnail" style="width: 100px; height: 100px;">
     <% end %>
   </a>
   <div class="media-body">

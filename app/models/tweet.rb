@@ -14,4 +14,10 @@ class Tweet < ActiveRecord::Base
     end
     Tweet.delete(to_destroy) if to_destroy.any?
   end
+
+  def self.delete_older_than_x_days(number_of_days)
+    number_of_days = 2 if number_of_days.to_int < 2
+    Tweet.delete_all("tweet_created_at < '#{number_of_days.days.ago}'")
+    ActionController::Base.new.expire_fragment('keywords_home_table')
+  end
 end
