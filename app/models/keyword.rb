@@ -1,6 +1,7 @@
 class Keyword < ActiveRecord::Base
   has_many :tweets, dependent: :destroy
   mount_uploader :image, ImageUploader
+  validates :word, presence: true
   def grab_tweets
     client = Keyword.twitter_client
 

@@ -1,28 +1,32 @@
-<%= form_for(@keyword, html: {multipart: true}) do |f| %>
-  <% if @keyword.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@keyword.errors.count, "error") %> prohibited this keyword from being saved:</h2>
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for(@keyword, html: {multipart: true}) do |f| %>
+      <% if @keyword.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@keyword.errors.count, "error") %> prohibited this keyword from being saved:</h2>
 
-      <ul>
-      <% @keyword.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @keyword.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :word %><br>
-    <%= f.text_field :word %>
-  </div>
+      <div class="field form-group">
+        <%= f.label :word %><br>
+        <%= f.text_field :word, class: 'form-control' %>
+      </div>
 
-  <div class="field">
-    <%= image_tag(@keyword.image.thumb.url, width: 100) if @keyword.image? %>
-    <%= f.file_field :image %>
-    <%= f.hidden_field :image_cache %>
-  </div>
+      <div class="field form-group">
+        <%= image_tag(@keyword.image.thumb.url, width: 100) if @keyword.image? %>
+        <%= f.file_field :image, class: 'form-control' %>
+        <%= f.hidden_field :image_cache %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit %>
+      <div class="actions form-group">
+        <%= f.submit class: 'btn btn-primary' %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
