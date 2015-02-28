@@ -7,7 +7,7 @@ class Keyword < ActiveRecord::Base
 
     client.search(self.word, result_type: "recent").take(100).collect do |tweet|
       # add only tweets that have less than 2 days
-      if tweet.created_at < 2.days.ago
+      if tweet.created_at > 2.days.ago
         new_tweet = Tweet.new
         new_tweet.tweet_id = tweet.id.to_s
         new_tweet.tweet_created_at = tweet.created_at
