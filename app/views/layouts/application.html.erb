@@ -40,12 +40,15 @@
           <li class="active"><%= link_to 'Home', root_path %></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
-		</ul>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete if user_signed_in? %></li>
+        </ul>
 
 	</div><!-- /.navbar-collapse -->
 </nav>
 
 <div class="container">
+  <p id="notice" class="notice"><%= notice %></p>
+  <p id="alert" class="alert"><%= alert %></p>
     <%= yield %>
 </div>
 

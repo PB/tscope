@@ -47,10 +47,14 @@ gem 'fog'
 gem 'mini_magick'
 # Bootstrap gem
 gem 'bootstrap-sass', '~> 3.3.3'
+# Bootstrap pagination
+gem 'will_paginate-bootstrap'
 # S3 assets
 gem 'asset_sync'
 # Memcache client
 gem 'dalli'
+# Flexible authentication solution
+gem 'devise'
 
 
 # Use ActiveModel has_secure_password
@@ -71,6 +75,9 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Awsome print
+  gem 'awesome_print'
 end
 
 ruby "2.2.0"

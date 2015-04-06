@@ -5,7 +5,7 @@ class Keyword < ActiveRecord::Base
   def grab_tweets
     client = Keyword.twitter_client
 
-    client.search(self.word, result_type: "recent").take(100).collect do |tweet|
+    client.search(self.word + '-filter:retweets', result_type: "recent").take(100).collect do |tweet|
       # add only tweets that have less than 2 days
       if tweet.created_at > 2.days.ago
         new_tweet = Tweet.new

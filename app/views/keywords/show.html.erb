@@ -38,8 +38,8 @@
             </div>
             <% end %>
           </div>
-        <div class="flickr_pagination">
-            <%= will_paginate @tweets %>
+        <div class="text-center">
+          <%= will_paginate @tweets, renderer: BootstrapPagination::Rails %>
         </div>
     <% end %>
     </div>
