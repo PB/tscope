@@ -49,6 +49,8 @@ gem 'mini_magick'
 gem 'bootstrap-sass', '~> 3.3.3'
 # Bootstrap pagination
 gem 'will_paginate-bootstrap'
+# Active link
+gem 'active_link_to'
 # S3 assets
 gem 'asset_sync'
 # Memcache client

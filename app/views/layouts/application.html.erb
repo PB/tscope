@@ -37,10 +37,10 @@
 		</form>
       -->
 		<ul class="nav navbar-nav navbar-right">
-          <li class="active"><%= link_to 'Home', root_path %></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete if user_signed_in? %></li>
+          <%= active_link_to 'Keywords', keywords_path, wrap_tag: 'li' %>
+          <%= active_link_to 'About', pages_about_path, wrap_tag: 'li' %>
+          <%= active_link_to 'Contact', pages_contact_path, wrap_tag: 'li' %>
+          <%= active_link_to 'Sign Out', destroy_user_session_path, method: :delete, wrap_tag: 'li' if user_signed_in? %>
         </ul>
 
 	</div><!-- /.navbar-collapse -->
